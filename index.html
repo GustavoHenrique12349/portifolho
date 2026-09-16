@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #171923; /* Fundo idêntico à imagem */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: #00f0ff; /* Azul Neon */
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 75vh;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cyan-text {
+            color: #00f0ff
+        }
+
+        .hero-text p {
+            color: #a0aec0;
+            max-width: 480px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #00f0ff;
+            border-radius: 50%;
+            color: #00f0ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #00f0ff;
+            color: #171923;
+            box-shadow: 0 0 15px #00f0ff;
+        }
+        .btn-cv {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #00f0ff;
+            color: #171923;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn-cv:hover {
+            box-shadow: 0 0 25px #00f0ff;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+        }
+
+        .hexagon-box {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            background: #1a202c;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 4px solid #00f0ff;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hexagon-box::after {
+            content: "Sua Foto Aqui";
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .projects-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #1a202c;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2d3748;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #00f0ff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #2d3748;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+            font-weight: bold;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .project-info p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #00f0ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+     
+        <nav>
+            <div class="logo">Portfolio.</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h3>Olá me chamo</h3>
+                <h1>Gustavo Oliveira</h1>
+                <h2>Sou estudante de <span class="cyan-text">Programação da Unifil</span></h2>
+                <p>Sou um progrmador profissional afiliado do falecido e muito respeitado criador da FUNAI STORE, Betille Gentili.</p>
+                
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+                <a href="#" class="btn-cv">Download funai store</a>
+            </div>
+
+            <div class="hero-image">
+                <div class="hexagon-box">
+                   
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2 class="section-title">Meus projetos recentes <span class="cyan-text">Projetos</span></h2>
+            
+            <div class="projects-grid">
+               
+                <article class="project-card">
+                    <div class="project-img">Preview Projeto 1</div>
+                    <div class="project-info">
+                        <h3>Repositorio five-stars</h3>
+                        <p>Um projeto metafisico alem da compreensão humana acima de 2.3 na media humana.</p>
+                        <a href="#" class="project-link">ver projeto →</a>
+                    </div>
+                </article>
+
+           
+                <article class="project-card">
+                    <div class="project-img">Preview Projeto 2</div>
+                    <div class="project-info">
+                        <h3>Tabela </h3>
+                        <p>Uma tabela criada para organizar atividades coesas.</p>
+                        <a href="#" class="project-link">Ver projeto →</a>
+                    </div>
+                </article>
+
+              
+                <article class="project-card">
+                    <div class="project-img">Preview Projeto 3</div>
+                    <div class="project-info">
+                        <h3>Funai Store</h3>
+                        <p>Loja mais moderna e tecnogicas para compra de equipamentos de caça e atividades peixerianas.</p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </article>
